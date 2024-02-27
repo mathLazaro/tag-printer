@@ -64,6 +64,7 @@ class Tag:
 
         pdf_name = self.hc + '.pdf'
 
+        # tag size
         pdf = Canvas(parent_path + '\\' + pdf_name, (5 * cm,3 * cm))
         pdf.setFont('Times-Bold',10)
         
