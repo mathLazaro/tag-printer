@@ -1,6 +1,4 @@
-# arquivos do projeto
 from view.interface_view import InterfaceView
-#
 
 from tkinter import *
 from tkinter import ttk
@@ -15,12 +13,12 @@ class SinglePrintFrame(Frame, InterfaceView):
         printer_field = Frame(self)
         button_field = Frame(self)
 
-        # Label de informação
+        # Info label
 
         Label(entry_field,text="Etiqueta: ").pack(side=TOP,anchor=W,pady=2)
         Label(printer_field,text="Impressora: ").pack(side=TOP,anchor=W,pady=2)
 
-        # Input das informações da etiqueta
+        # Input tag info
 
             ## Label
         nome = Frame(entry_field)
@@ -46,7 +44,7 @@ class SinglePrintFrame(Frame, InterfaceView):
         self.inputLeito.pack(side=LEFT,anchor=E,padx=1)
             #
         
-        # Campo para inserir a Impressora
+        # Field to input printer
         
         self.inputPrinter = StringVar()
         self.comboPrinter = ttk.Combobox(printer_field,
@@ -55,7 +53,7 @@ class SinglePrintFrame(Frame, InterfaceView):
                                   ,state='readonly')
         self.comboPrinter.pack(side=LEFT,anchor=W)
         
-        ## Botão de imprimir
+        ## Printer button
 
         self._buttonPrint = Button(button_field,
                              text='Imprimir',
@@ -66,7 +64,6 @@ class SinglePrintFrame(Frame, InterfaceView):
         printer_field.pack(side=TOP,fill=X,padx=30,pady=5)
         button_field.pack(side=TOP,fill=X,padx=35,pady=5)
 
-    # bind dos calbacks
     def bind_comands(self):
         self.comboPrinter.bind('<<ComboboxSelected>>',self.getCallbacks['GET_PRINTER'])
         self._buttonPrint.bind('<Button>',self.getCallbacks['PRINT'])

@@ -1,8 +1,6 @@
-# arquivos do projeto
 import view.multi_view as mpf
 import view.single_view as spf
 from view.interface_view import InterfaceView
-#
 
 from tkinter import *
 from tkinter import ttk
@@ -21,7 +19,7 @@ class MainView(InterfaceView):
         self._note.add(self.multi_print_frame,text="Múltiplas")
         self._note.add(self.single_print_frame,text="Único")
 
-    # configura a janela
+    # configures main window
     def _win_config(self):
         self._win.title("Impressão de etiquetas")
         self._win.geometry("520x223")

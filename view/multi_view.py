@@ -1,6 +1,4 @@
-# arquivos do projeto
 from view.interface_view import InterfaceView
-#
 
 from tkinter import *
 from tkinter import ttk
@@ -18,7 +16,7 @@ class MultiPrintFrame(Frame, InterfaceView):
         printer_field = Frame(self)
         button_field = Frame(self)
 
-        # Label de informação
+        # Info label
 
         Label(excel_field,text="Arquivo de planilha:").pack(side=TOP,anchor=W,pady=5)
         label_field = Frame(printer_field)
@@ -26,7 +24,7 @@ class MultiPrintFrame(Frame, InterfaceView):
         Label(label_field,text='Sheet:').pack(side=RIGHT,anchor=E,padx=6,pady=5,ipadx=115)
         label_field.pack(side=TOP,fill=X)
 
-        # Campo do caminho de arquivo
+        # Field to show selected field
 
         self.folder_path = Label(excel_field,
                                text='Diretório',
@@ -37,7 +35,7 @@ class MultiPrintFrame(Frame, InterfaceView):
                                anchor=W)
         self.folder_path.pack(side=LEFT,anchor=W)
 
-        # botão para inserir caminho do arquivo
+        # Button to input excel file path
 
         self.folder_path_button = Button(excel_field,
                                   image=folder_icon,
@@ -47,7 +45,7 @@ class MultiPrintFrame(Frame, InterfaceView):
         self.folder_path_button.image = folder_icon
         self.folder_path_button.pack(side=LEFT,anchor=W)
 
-        # Campo para inserir a Impressora
+        # Field to input printer name
 
         self.input_printer = StringVar()
         self.combo_printer = ttk.Combobox(printer_field,
@@ -56,7 +54,7 @@ class MultiPrintFrame(Frame, InterfaceView):
                                   ,state='readonly')
         self.combo_printer.pack(side=LEFT,anchor=W)
         
-        # Campo para selecionar o tamanho da fonte
+        # Field to select font size
 
         self.input_sheet = StringVar()
         self._combo_sheet = ttk.Combobox(printer_field,
@@ -64,10 +62,12 @@ class MultiPrintFrame(Frame, InterfaceView):
                                   ,textvariable=self.input_sheet
                                   ,state='readonly')
         self._combo_sheet.pack(side=LEFT,anchor=W,padx=3)
+
+        # Sheet names on excel file
         self._combo_sheet['values'] = ['PACIENTES AGUDOS','TX','CONTÍNUAS','EM DIALISE','CONSERVADOR']
         self._combo_sheet.current(0)
 
-        ## Botão de imprimir
+        ## Printer button
     
         self._button_print = Button(button_field,
                              text='Imprimir',
@@ -82,7 +82,7 @@ class MultiPrintFrame(Frame, InterfaceView):
         Frame(self).pack(pady=5)
         button_field.pack(side=TOP,fill=X,padx=35,pady=5 )
 
-    # bind dos callbacks
+    # Callback binds
     def bind_comands(self):
         self.folder_path_button.bind('<Button>',self.getCallbacks['GET_PATH_FOLDER'])
         self.combo_printer.bind('<<ComboboxSelected>>',self.getCallbacks['GET_PRINTER'])

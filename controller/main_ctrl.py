@@ -9,7 +9,7 @@ from shutil import rmtree
 
 class MainController:
     def __init__(self):
-        # arquivos .pdf gerados
+        # Create a new folder to place temp pdf files
         try:
             os.mkdir(os.path.join(os.getcwd(),'pdfs_gerados'))
         except:
@@ -19,10 +19,8 @@ class MainController:
 
         root = Tk()
 
-        # intanciação da view principal
         view = MainView(root)
 
-        # intanciação dos controladores secundários
         MultiController(view.multi_print_frame, self)
         SingleController(view.single_print_frame, self)        
 
